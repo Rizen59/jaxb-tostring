@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<devices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="devices.xsd">
+    <consoles>
+        <console vendor="SONY" model="PS3"/>
+        <console vendor="SONY" model="PS4"/>
+        <console vendor="SONY" model="PS5"/>
+        <console vendor="MICROSOFT" model="XBOX360"/>
+        <console vendor="MICROSOFT" model="XBOXONE"/>
+    </consoles>
+</devices>

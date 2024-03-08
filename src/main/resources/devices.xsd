@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="model">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PS3"/>
+            <xs:enumeration value="PS4"/>
+            <xs:enumeration value="PS5"/>
+            <xs:enumeration value="XBOX360"/>
+            <xs:enumeration value="XBOXONE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="vendor">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SONY"/>
+            <xs:enumeration value="MICROSOFT"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="devices">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="consoles"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="consoles">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="console" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="uniquegauge">
+            <xs:selector xpath="gauge"/>
+            <xs:field xpath="@model"/>
+            <xs:field xpath="@vendor"/>
+        </xs:unique>
+    </xs:element>
+    <xs:element name="console">
+        <xs:complexType>
+            <xs:attribute name="model" type="model" use="required"/>
+            <xs:attribute name="vendor" type="vendor" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
